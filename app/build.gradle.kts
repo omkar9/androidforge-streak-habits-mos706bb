@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
@@ -95,13 +96,13 @@ dependencies {
 
     // Hilt
     implementation("com.google.dagger:hilt-android:$hilt")
-    ksp("com.google.dagger:hilt-compiler:$hilt")
+    kapt("com.google.dagger:hilt-compiler:$hilt")
     implementation("androidx.hilt:hilt-navigation-compose:$hiltCompiler")
-    ksp("androidx.hilt:hilt-compiler:$hiltCompiler") // For Hilt ViewModel integration
+    kapt("androidx.hilt:hilt-compiler:$hiltCompiler") // For Hilt ViewModel integration
 
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:$workManager")
-    ksp("androidx.work:work-runtime-ktx-compiler:$workManager") // For WorkManager Hilt integration
+    kapt("androidx.work:work-runtime-ktx-compiler:$workManager") // For WorkManager Hilt integration
 
     // AdMob
     implementation("com.google.android.gms:play-services-ads:$playServicesAds")
